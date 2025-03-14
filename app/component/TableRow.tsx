@@ -17,10 +17,12 @@ const TableRow: React.FC<{
     </td>
     <td className="p-2">{row.name}</td>
     <td className="p-2">{row.device}</td>
-    <td className="p-2">{row.path}</td>
+    <td className="p-2 max-w-[300px] overflow-hidden text-ellipsis">
+      {row.path}
+    </td>
     <td className="p-2 flex items-center">
-      {row.status === "Available" && (
-        <span className="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
+      {row.status === "available" && (
+        <span className="h-2 w-2 bg-green-500 rounded-full mr-2 min-w-2"></span>
       )}
       {row.status}
     </td>

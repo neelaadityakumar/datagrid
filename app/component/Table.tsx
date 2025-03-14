@@ -15,7 +15,7 @@ const Table: React.FC<TableProps> = ({
   return (
     <table className="w-full border-collapse border border-gray-300">
       <thead>
-        <tr className="bg-gray-100">
+        <tr className="">
           <th className="border p-2">Select</th>
           <th className="border p-2">Name</th>
           <th className="border p-2">Device</th>

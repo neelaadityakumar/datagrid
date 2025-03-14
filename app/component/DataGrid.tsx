@@ -29,7 +29,7 @@ const DataGrid: React.FC<DataGridProps> = ({ data }) => {
   const canDownload =
     selectedRows.length > 0 &&
     selectedRows.every((id) => {
-      return data.find((row) => row.id === id)?.status === "Available";
+      return data.find((row) => row.id === id)?.status === "available";
     });
 
   const handleDownload = () => {
@@ -46,7 +46,7 @@ const DataGrid: React.FC<DataGridProps> = ({ data }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 p-4 border rounded-lg shadow-lg">
+    <div className="mx-auto min-w-full mt-10 p-4 border rounded-lg shadow-lg">
       <h2 className="text-2xl font-bold mb-4">Datagrid</h2>
       <div className="mb-2">
         <label className="flex items-center">

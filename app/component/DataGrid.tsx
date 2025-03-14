@@ -46,41 +46,61 @@ const DataGrid: React.FC<DataGridProps> = ({ data }) => {
   };
 
   return (
-    <div className="mx-auto min-w-full mt-10 p-4 border rounded-lg shadow-lg">
+    <div className="min-w-full ">
+      {" "}
       <h2 className="text-2xl font-bold mb-4">Datagrid</h2>
-      <div className="mb-2">
-        <label className="flex items-center">
-          <input
-            type="checkbox"
-            className="mr-2"
-            checked={isAllSelected}
-            onChange={handleSelectAll}
-            ref={(el) => {
-              if (el) {
-                el.indeterminate = isPartialSelected;
-              }
-            }}
-          />
-          {selectedRows.length > 0
-            ? `${selectedRows.length} Selected`
-            : "None Selected"}
-        </label>
-      </div>
-      <Table
-        data={data}
-        handleSelectRow={handleSelectRow}
-        selectedRows={selectedRows}
-      />
-
-      <button
-        className={`mt-4 p-2 bg-blue-500 text-white rounded ${
-          !canDownload ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-600"
-        }`}
-        disabled={!canDownload}
-        onClick={handleDownload}
-      >
-        Download Selected
-      </button>
+      <div className="mx-auto min-w-full mt-10 p-4 border border-gray-300 rounded shadow-lg">
+        <div className="mb-2 flex gap-4 items-center">
+          <label className="flex items-center">
+            <input
+              type="checkbox"
+              className="mr-2"
+              checked={isAllSelected}
+              onChange={handleSelectAll}
+              ref={(el) => {
+                if (el) {
+                  el.indeterminate = isPartialSelected;
+                }
+              }}
+            />
+            {selectedRows.length > 0
+              ? `${selectedRows.length} Selected`
+              : "None Selected"}
+          </label>
+          <button
+            className={`my-4 p-2 rounded flex gap-4 items-center justify-center ${
+              canDownload
+                ? " text-black cursor-pointer "
+                : "text-gray-400 opacity-50 cursor-not-allowed"
+            }`}
+            disabled={!canDownload}
+            onClick={handleDownload}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={`h-6 w-6 ${
+                !canDownload ? "opacity-50" : "opacity-100"
+              }`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2m-4-4l-4 4m0 0l-4-4m4 4V4"
+              />
+            </svg>
+            Download Selected
+          </button>
+        </div>
+        <Table
+          data={data}
+          handleSelectRow={handleSelectRow}
+          selectedRows={selectedRows}
+        />
+      </div>{" "}
     </div>
   );
 };

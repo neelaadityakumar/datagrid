@@ -15,15 +15,15 @@ const Table: React.FC<TableProps> = ({
   return (
     <table className="w-full border-collapse border border-gray-300">
       <thead>
-        <tr className="">
-          <th className="border p-2">Select</th>
-          <th className="border p-2">Name</th>
-          <th className="border p-2">Device</th>
-          <th className="border p-2">Path</th>
-          <th className="border p-2">Status</th>
+        <tr className="text-left">
+          <th className="border-y border-l p-2">Select</th>
+          <th className="border-y p-2">Name</th>
+          <th className="border-y p-2">Device</th>
+          <th className="border-y p-2">Path</th>
+          <th className="border-y p-2 border-r">Status</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className=" text-left">
         {data.map((row) => (
           <TableRow
             key={row.id}
